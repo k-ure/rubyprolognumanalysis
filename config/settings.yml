@@ -1,0 +1,32 @@
+# Pattern Analysis Settings
+patterns_enabled: true
+auto_export: false
+export_format: csv
+
+# Display Settings
+display_fractions: true
+display_differences: true
+display_patterns: true
+
+# Pattern Categories
+pattern_categories:
+  - sequences
+  - properties
+  - relationships
+
+# Export Settings
+export_directory: output
+default_filename: pattern_analysis
+
+# Analysis Settings
+default_start: 1
+default_end: 100
+default_step: 1
+
+# Educational Features
+show_explanations: true
+explanation_level: basic  # can be basic or advanced
+
+# Performance Settings
+use_cache: true
+parallel_processing: false

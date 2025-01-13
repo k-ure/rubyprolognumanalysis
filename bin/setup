@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+# path to your application root.
+APP_ROOT = File.expand_path('..', __dir__)
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+FileUtils.chdir APP_ROOT do
+  puts '== Installing dependencies =='
+  system! 'gem install bundler --conservative'
+  system('bundle check') || system!('bundle install')
+
+  puts "\n== Creating necessary directories =="
+  FileUtils.mkdir_p 'tmp/output'
+  FileUtils.mkdir_p 'log'
+
+  puts "\n== Checking for SWI-Prolog =="
+  if system("which swipl > /dev/null 2>&1")
+    puts "SWI-Prolog found!"
+  else
+    puts "WARNING: SWI-Prolog not found!"
+    puts "Please install it using your package manager:"
+    puts "  Ubuntu/Debian: sudo apt-get install swi-prolog"
+    puts "  macOS: brew install swi-prolog"
+    puts "  Windows: Download from https://www.swi-prolog.org/download/stable"
+  end
+
+  puts "\n== Setup complete =="
+end
+
