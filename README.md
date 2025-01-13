@@ -16,7 +16,7 @@ A Ruby-based tool for analyzing numerical patterns and relationships, with Prolo
 
 
 bash
-git clone https://github.com/yourusername/number-pattern-analyzer
+git clone https://github.com/uk2uk2/rubyprolognumanalysis
 
 
 
